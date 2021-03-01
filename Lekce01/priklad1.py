@@ -12,7 +12,10 @@ baliky = {
 }
 
 kodBaliku = input("Zadejte kód balíku: ")
-if bool(baliky[kodBaliku]) is True:
-  print("Balík byl předán kurýrovi.")
+if kodBaliku in baliky:
+  if (baliky[kodBaliku]) == True:
+    print("Balík byl předán kurýrovi.")
+  else:
+    print("Balík zatím nebyl předán kurýrovi.")
 else:
-  print("Balík zatím nebyl předán kurýrovi.")
+  print("Zadaný kód balíku neexistuje.")
