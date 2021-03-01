@@ -24,7 +24,6 @@ if kodSoucastky in sklad:
     sklad.pop(kodSoucastky)
   elif mnozstvi < sklad[kodSoucastky]:
     print ("Skladem je dostatečné množství požadované součástky.")
-    mnozstvi = sklad[kodSoucastky] - mnozstvi
 else:
   print("Součástka není skladem")
 
