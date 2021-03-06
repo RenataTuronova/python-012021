@@ -9,7 +9,7 @@ class IndexView(View):
 <p>CAR HIRE nabízí zákazníkům široký sortiment aut k zapůjčení. Poskytneme Vám vůz pro každou příležitost, ať už se chystáte na dovolenou, stěhujete se, či potřebujete auto pro své podnikání. Díky naším komplexním službám si můžete bezstarostně půjčit vůz krátkodobě i dlouhodobě, a to za akční ceny. Přesvědčte se sami!<br>
 <h3>Využijte našich skvělých služeb.</h3> 
 </p>Nabídku vozidel naleznete na odkazu níže:</p>
-<a href='http://localhost:8000/katalog/seznam/'>Zobrazit vozidla</a><br>
+<a href='http://localhost:8000/catalog/list/'>Zobrazit vozidla</a><br>
 """)
 
 class ListView(View):
