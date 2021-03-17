@@ -12,6 +12,7 @@
 #
 # Tip: Zkus svoji první funkci vytunit tak, že si bude umět poradit s mezerami v telefonním čísle. Mezer se zbavíš tak, že použiješ funkci replace() a tečkovou notaci. První parametr je znak, který chceš nahradit, a druhý parametr nový znak. Níže je příklad použití.
 
+import math
 
 phoneNumber = (input("Zadejte číslo, na které chcete zprávu zaslat: "))
 phoneNumber = phoneNumber.replace(" ", "")
@@ -22,19 +23,17 @@ def verification(phoneNumber):
   elif len(phoneNumber) == 13 and phoneNumber[0:4] == "+420":
     return True
   else:
-    print("Zadané čislo má špatný formát.")
+    print("Zadané číslo má špatný formát.")
     return False
-
 
 vysledek1 = verification(phoneNumber)
 if vysledek1:
   sms = input("Zadejte text zprávy: ")
-  import math
+
+def totalPrice(sms):
   smsCount = math.ceil(len(sms) / 180)
   paidText = smsCount * 3
+  return paidText
 
-  def totalPrice(paidText):
-    return paidText
-
-  print(f"Výsledná cena zprávy je {paidText} Kč.")
+print(f"Výsledná cena zprávy je {totalPrice(sms)} Kč.")
 
