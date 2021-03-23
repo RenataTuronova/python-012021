@@ -17,7 +17,7 @@
 # Červenáček: Prospěl s vyznamenáním
 # Rychlonožka: Prospěl
 
-vysledky = [
+results = [
   {"Jméno": "Mirek Dušín", "Český jazyk": 1, "Anglický jazyk": 2, "Matematika": 1, "Biologie": 1, "Zeměpis": 1},
   {"Jméno": "Jarka Metelka", "Český jazyk": 3, "Anglický jazyk": 1, "Matematika": 3, "Dějepis": 2, "Ekonomika": 5},
   {"Jméno": "Jindra Hojer", "Český jazyk": 2, "Anglický jazyk": 2, "Matematika": 1, "Biologie": 3, "Chemie": 3},
@@ -25,26 +25,26 @@ vysledky = [
   {"Jméno": "Rychlonožka", "Český jazyk": 4, "Anglický jazyk": 3, "Matematika": 2, "Chemie": 1, "Biologie": 4},
 ]
 
-student = {}
-studentSumMark = 0
-for student in vysledky:
-  for value in student:
-    if type(value) == int:
-      studentMark = value
+def studentEvaluation(student):
+  marks = student.values()
+  sumMark = sum(marks)
+  average = sumMark / len(student)
 
-# sumMark += mark
-# print(sumMark)
-# average = sumMark / (len(student) - 1)
-# print(average)
+  if average <= 1.5:
+    if max(marks) == 3:
+      return "Prospěl"
+    else:
+      return "Prospěl s vyznamenáním"
+  else:
+    if max(marks) == 5:
+      return "Neprospěl"
+    else:
+      return "Prospěl"
 
-# def ohodnotStudenta(student):
-#   if average <= 1.5:
-#       return "Prospel"
-#     else:
-#       return "Prospel s vyznamenanim"
-#   if average > 1.5:
-#       return "Neprospel"
-#     else:
-#       return "Prospel"
+for student in results:
+  name = student.pop("Jméno")
+  print(f"{name} : {studentEvaluation(student)}")
+
+
 
 
