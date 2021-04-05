@@ -26,8 +26,8 @@ class Movie(Item):
     return f"Jedná se o film, jehož délka je {self.lenght} minut."
 
   def getTotalLenght(self):
-    totalLenght = self.lenght
-    return totalLenght
+    itemLenght = self.lenght
+    return itemLenght
 
 class Serial(Item):
   def __init__(self, title, genre, numberOfEpisodes, episodeLenght):
@@ -40,30 +40,27 @@ class Serial(Item):
     return f"Jedná se o seriál, který má {self.numberOfEpisodes} epizod. Délka jedné epizody je {self.episodeLenght} minut."
 
   def getTotalLenght(self):
-    totalLenght = self.numberOfEpisodes * self.episodeLenght
-    return totalLenght
+    itemLenght = self.numberOfEpisodes * self.episodeLenght
+    return itemLenght
 
 movie = Movie("Přelet nad kukaččím hnízdem", "drama", 133)
 serial = Serial("The Big Bang Theory", "sitcom", 12, 20)
-
-totalLenght = movie.getTotalLenght() + serial.getTotalLenght()
 
 class User:
   def __init__(self, username, lenghtOfWatching=0):
     self.username = username
     self.lenghtOfWatching = lenghtOfWatching
 
-
-  def addViews(self, totalLenght):
-    result = self.lenghtOfWatching + totalLenght
-  # return f"Uživatel shlédl celkově {result} minut videa."
-
-    hours = result // 60
-    minutes = result % 60
+  def addViews(self, itemsLenght):
+    self.lenghtOfWatching += itemsLenght
+  # return f"Uživatel shlédl celkově {self.lenghtOfWatching} minut videa."
+    hours = self.lenghtOfWatching // 60
+    minutes = self.lenghtOfWatching % 60
     return f"Uživatel shlédl celkově {hours} hodin a {minutes} minut videa."
 
-user = User("Pavel", 250)
-print(user.addViews(totalLenght))
+user = User("Pavel")
+print(user.addViews(movie.getTotalLenght()))
+print(user.addViews(serial.getTotalLenght()))
 
 
 # Složitější varianta
@@ -85,8 +82,8 @@ class Movie(Item):
     self.lenght = lenght
 
   def getTotalLenght(self):
-    totalLenght = self.lenght
-    return totalLenght
+    itemLenght = self.lenght
+    return itemLenght
 
 class Serial(Item):
   def __init__(self, title, genre, numberOfEpisodes, episodeLenght):
@@ -95,31 +92,42 @@ class Serial(Item):
     self.episodeLenght = episodeLenght
 
   def getTotalLenght(self):
-    totalLenght = self.numberOfEpisodes * self.episodeLenght
-    return totalLenght
+    itemLenght = self.numberOfEpisodes * self.episodeLenght
+    return itemLenght
 
 class User:
-  def __init__(self, username, myList):
-     self.username = username
-     self.myList = myList
-
+  def __init__(self, username, myList=[]):
+    self.username = username
+    self.myList = myList
 
   def watchItem(self, newItem):
-    myNewList = self.myList + [newItem]
-    return myNewList
+     self.myList.append(newItem)
+     # for item in self.myList:
+       # print(item.title)
+     return self.myList
+
 
   def lenghtOfWatching(self):
-    total = 0
-    for item in myNewList:
+    totalLenght = 0
+    for item in self.myList:
+      print(item.title)
       itemLenght = item.getTotalLenght()
-      total += itemLenght
-      return total
-
+      totalLenght += itemLenght
+  # return f"Uživatel shlédl celkově {totalLenght} minut videa."
+      hours = totalLenght // 60
+      minutes = totalLenght % 60
+    return f"Uživatel shlédl celkově {hours} hodin a {minutes} minut videa."
 
 movie1 = Movie("Přelet nad kukaččím hnízdem", "drama", 133)
-serial1 = Serial("The Big Bang Theory", "sitcom", 12, 20)
+serial = Serial("The Big Bang Theory", "sitcom", 12, 20)
 movie2 = Movie("Forrest Gump", "drama/komedie/romantický", 142)
 
-user = User("Pavel", [movie1.title, movie2.title])
-print(user.watchItem(serial1.title))
+user = User("Pavel")
+user.watchItem(movie1)
+print(user.lenghtOfWatching())
+
+user.watchItem(serial)
+print(user.lenghtOfWatching())
+
+user.watchItem(movie2)
 print(user.lenghtOfWatching())
