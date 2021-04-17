@@ -26,18 +26,16 @@ class Car:
   def getInfo(self):
     if self.free:
       return f"Vozidlo značky {self.carMake} s spz {self.registrationMark} má najeto {self.kilometers} kilometrů."
-    else:
-      return f"Vozidlo značky {self.carMake} s spz {self.registrationMark} má najeto {self.kilometers} kilometrů."
+
 
   def returnACar(self, odometer, days):
     self.odometer = odometer
     self.free = True
     if days <= 7:
       price = days * 400
-      return f"Konecná cena za vypůjčení auta na {days} dní/y je {price} korun."
     else:
       price = days * 300
-      return f"Konečná cena za vypůjčení auta na {days} dní je {price} korun."
+    return f"Konečná cena za vypůjčení auta na {days} dní je {price} korun."
 
 car1 = Car("4A2 3020", "Peugeot 403 Cabrio", 47534, True)
 car2 = Car("1P3 4747", "Škoda Octavia", 41253, True)

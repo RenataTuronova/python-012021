@@ -14,7 +14,7 @@
 
 import math
 
-phoneNumber = (input("Zadejte číslo, na které chcete zprávu zaslat: "))
+phoneNumber = input("Zadejte číslo, na které chcete zprávu zaslat: "))
 phoneNumber = phoneNumber.replace(" ", "")
 
 def verification(phoneNumber):

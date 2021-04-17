@@ -22,8 +22,7 @@ class Film(Item):
     self.lenght = lenght
 
   def getInfo(self):
-    print(super().getInfo())
-    return f"Jedná se o film, jehož délka je {self.lenght} minut."
+    return f"{super().getInfo()} Jedná se o film, jehož délka je {self.lenght} minut."
 
 class Serial(Item):
   def __init__(self, title, genre, numberOfEpisodes, episodeLenght):
@@ -32,8 +31,7 @@ class Serial(Item):
     self.episodeLenght = episodeLenght
 
   def getInfo(self):
-    print(super().getInfo()),
-    return f"Jedná se o seriál, který má {self.numberOfEpisodes} epizod. Délka jedné epizody je {self.episodeLenght} minut."
+    return f"{super().getInfo()} Jedná se o seriál, který má {self.numberOfEpisodes} epizod. Délka jedné epizody je {self.episodeLenght} minut."
 
 film = Film("Přelet nad kukaččím hnízdem", "drama", 133)
 serial = Serial("The Big Bang Theory", "sitcom", 12, 20)

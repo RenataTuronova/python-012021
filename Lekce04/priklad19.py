@@ -1,5 +1,5 @@
 # program19 - Instalace modulu
-# Zopakuj si postup při instalaci modulu. Pojďme si vytvořit směnárnu, která nemá kurzy zadané pevně, ale umí si kurz měny stáhnout z internetu.
+# Zopakuj si postup při instalaci modulu. Pojďme si vytvořit směnárnu, která nemá course zadané pevně, ale umí si kurz měny stáhnout z internetu.
 #
 # V PyCharmu klikni na File -> Settings -> Project -> Python Interpreter. Následně klikni na tlačítko + (Install) a vyhledej modul forex-python. Dále klini na Install Package a potvrď instalaci.
 # Dále se podívej na následující příklad, jak s modulem pracovat. Na prvním řádku je import, aby Python věděl, že s modulem chceme pracovat. Na druhém řádku vytvoříme objekt prevodnik (je to objekt třídy CurrencyRates), který se stará o převod měn.
@@ -23,16 +23,12 @@ recquiredInTargetCyrrency = int(input("Zadejte požadované množství měny: ")
 
 if currency == "EUR":
   priceInCzk = converter.convert("EUR", "CZK", recquiredInTargetCyrrency)
-  print(priceInCzk)
-  print(round(priceInCzk))
 elif currency == "GBP":
   priceInCzk = converter.convert("GBP", "CZK", recquiredInTargetCyrrency)
-  print(priceInCzk)
-  print(round(priceInCzk))
 elif currency == "DKK":
   priceInCzk = converter.convert("DKK", "CZK", recquiredInTargetCyrrency)
-  print(priceInCzk)
-  print(round(priceInCzk))
+print(priceInCzk)
+print(round(priceInCzk))
 
 # 2.
 from forex_python.bitcoin import BtcConverter

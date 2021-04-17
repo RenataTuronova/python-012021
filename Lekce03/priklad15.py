@@ -24,14 +24,13 @@ date = datetime.strptime(cinema, "%d. %m. %Y")
 
 startDate1 = datetime(2021, 7, 1)
 endDate1 = datetime(2021, 8, 10)
-startDate2 = datetime(2021, 8, 10)
 endDate2 = datetime(2021, 8, 31)
 
 if date >= startDate1 and date <= endDate1:
   persons = int(input("Zadejte počet požadovaných vstupenek: "))
   price = 250 * persons
   print(f"Celková cena za vstupenky je {price} korun.")
-elif date > startDate2 and date <= endDate2 :
+elif date > endDate2 and date <= endDate2 :
   persons = int(input("Zadejte počet požadovaných vstupenek: "))
   price = 180 * persons
   print(f"Celková cena za vstupenky je {price} korun.")

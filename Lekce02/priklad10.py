@@ -33,31 +33,25 @@ def probability(industry, finance, country, conference=False, newsletter=False):
     points += 3
   elif industry == "retail":
     points += 2
-  else:
-    points += 0
 
 # finance
   if finance < 10000000:
     points += 0
   elif finance >= 10000000 and finance <= 1000000000:
     points += 3
-  else:
-    points += 1
 
 # country
   if country == "Česko" or country == "Slovensko":
     points += 2
   elif country == "Německo" or country == "Francie":
     points += 1
-  else:
-    points += 0
 
 # conference
-  if conference == "ano":
+  if conference:
     points += 1
 
 # newsletter
-  if newsletter == "ano":
+  if newsletter:
     points += 1
 
   return points

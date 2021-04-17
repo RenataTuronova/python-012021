@@ -28,6 +28,8 @@ salary = pandas.read_csv("platy_2021_02.csv")
  # 1. všichni zaměstnanci, i ti, kteří už ve firmě nepracují:
 employeesAndSalary = pandas.merge(employees, salary, how = "left")
 print(employeesAndSalary)
+employeesAndSalary.to_csv("employeesAndSalary.csv")
+
 # print(employees.shape)
 # print(salary.shape)
 # print(employeesAndSalary.shape)
