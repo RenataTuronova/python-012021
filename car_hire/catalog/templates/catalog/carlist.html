@@ -1,0 +1,24 @@
+<h2>Seznam nabízených vozidel</h2>
+
+<table>
+    <tr>
+        <th> Značka auta a model </th>
+        <th> Registrační značka </th>
+        <th> Stav tachometru (km) </th>
+        <th> Poslední technická kontrola </th>
+        <th> Počet dní od poslední technické kontroly</th>
+    </tr>
+    <tr>
+        {% for car in object_list %}
+        <td> {{ car.vehicle_make_and_model }} </td>
+        <td> {{ car.vehicle_registration_mark }} </td>
+        <td> {{ car.mileage_in_kilometers }} </td>
+        <td> {{ car.date_of_last_technical_inspection }} </td>
+        <td> {{ car.days_from_last_inspection }} </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<p><a href="{% url 'index' %}">Přejít zpět na úvodní stranu</a></p>
+<p><a href="{% url 'customer_list' %}">Přejít na seznam zákazníků</a></p>
+<p><a href="{% url 'hire_list' %}">Přejít na přehled vypůjček</a></p>

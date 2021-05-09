@@ -1,0 +1,13 @@
+<h2>Seznam výpůjček</h2>
+<p> </p>
+<ul>
+    {% for hire in object_list %}
+    <li>{{ hire.car.vehicle_make_and_model }}, zákazník: {{ hire.customer.first_name }} {{ hire.customer.surname }} ({{ hire.time_information }}) </li>
+    {% empty %}
+    <li>Litujeme, seznam neobsahuje žádné výpujčky.</li>
+    {% endfor %}
+</ul>
+
+<p><a href="{% url 'index' %}">Přejít zpět na úvodní stranu</a></p>
+<p><a href="{% url 'car_list' %}">Přejít na seznam nabízených vozů</a></p>
+<p><a href="{% url 'customer_list' %}">Přejít na seznam zákazníků</a></p>

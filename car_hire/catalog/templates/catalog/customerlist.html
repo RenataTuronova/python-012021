@@ -1,0 +1,18 @@
+<h2>Seznam našich zákazníků</h2>
+
+<table>
+    <tr>
+        <th> Jméno </th>
+        <th> Příjmení</th>
+    </tr>
+    <tr>
+        {% for customer in object_list %}
+        <td> {{ customer.first_name }} </td>
+        <td> {{ customer.surname }} </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<p><a href="{% url 'index' %}">Přejít zpět na úvodní stranu</a></p>
+<p><a href="{% url 'car_list' %}">Přejít na seznam nabízených vozů</a></p>
+<p><a href="{% url 'hire_list' %}">Přejít na přehled vypůjček</a></p>
